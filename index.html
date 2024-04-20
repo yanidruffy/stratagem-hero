@@ -15,6 +15,35 @@
 	<title>Stratagem Hero</title>
 </head>
 <body>
-
+	<h1 class="title">
+		Stratagem hero
+	</h1>
+	<hr>
+	<div class="game-area">
+		<div class="stratagem">
+			<p class="round">Round: <span id="round">0</span></p>
+			<p class="timer">Time Remaining: <span id="time">10</span></p>
+			<h2>Stratagem</h2>
+		</div>
+		<div class="stratagem-combo">
+			<tr>
+				<td class="arrows">Arrow Up</td>
+				<td class="arrows">Arrow Down</td>
+				<td class="arrows">Arrow Left</td>
+				<td class="arrows">Arrow Right</td>
+			</tr>
+		</div>
+		<div class="start">Click any stratagem to start</div>
+		<div class="mobile-input hidden">
+			<button data-type="arrow-up" class="btn btn-up">Arrow Up</button>
+			<button data-type="arrow-down" class="btn btn-down">Arrow Down</button>
+			<button data-type="arrow-left" class="btn btn-left">Arrow Left</button>
+			<button data-type="arrow-right" class="btn btn-right">Arrow Right</button>
+		</div>
+	</div>
+	<div class="score-area">
+		<p class="high-score">High score <span id="score">0</span></p>
+	</div>
+	<script src="./assets/js/script.js"></script>
 </body>
 </html>
