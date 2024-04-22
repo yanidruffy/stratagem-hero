@@ -1,0 +1,40 @@
+/* google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background-color: black;
+	color: #ffee32;
+	font-family: "Jersey 10", sans-serif;
+	text-align: center;
+}
+
+.title {
+	text-transform: uppercase;
+}
+
+.game-area {
+	padding: 2rem;
+	margin: 1rem;
+}
+
+.stratagem {
+	display: flex;
+	justify-content: space-between;
+}
+
+.mobile-input {
+	margin-top: 1rem;
+}
+.btn {
+	margin: 10px;
+	padding: 10px;
+}
+
+.score-area {
+	margin-top: 1rem;
+}
