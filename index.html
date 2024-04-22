@@ -11,6 +11,8 @@
 	<link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
 	<link rel="manifest" href="./assets/favicon/site.webmanifest">
+<!-- css -->
+	<link rel="stylesheet" href="./assets/css/style.css">
 <!-- title -->
 	<title>Stratagem Hero</title>
 </head>
@@ -23,8 +25,8 @@
 		<div class="stratagem">
 			<p class="round">Round: <span id="round">0</span></p>
 			<p class="timer">Time Remaining: <span id="time">10</span></p>
-			<h2>Stratagem</h2>
 		</div>
+		<h2 class="current-stratagem">Stratagem</h2>
 		<div class="stratagem-combo">
 			<tr>
 				<td class="arrows">Arrow Up</td>
@@ -35,15 +37,19 @@
 		</div>
 		<div class="start">Click any stratagem to start</div>
 		<div class="mobile-input hidden">
-			<button data-type="arrow-up" class="btn btn-up">Arrow Up</button>
-			<button data-type="arrow-down" class="btn btn-down">Arrow Down</button>
-			<button data-type="arrow-left" class="btn btn-left">Arrow Left</button>
-			<button data-type="arrow-right" class="btn btn-right">Arrow Right</button>
+			<button data-type="arrow-up" class="btn btn-up"><i class="fa-solid fa-circle-arrow-up"></i></button>
+			<div class="arrow-row">
+				<button data-type="arrow-left" class="btn btn-left"><i class="fa-solid fa-circle-arrow-left"></i></button>
+				<button data-type="arrow-down" class="btn btn-down"><i class="fa-solid fa-circle-arrow-down"></i></button>
+				<button data-type="arrow-right" class="btn btn-right"><i class="fa-solid fa-circle-arrow-right"></i></button>
+			</div>
 		</div>
 	</div>
+	<hr>
 	<div class="score-area">
 		<p class="high-score">High score <span id="score">0</span></p>
 	</div>
+	<script src="https://kit.fontawesome.com/e7f4edf267.js" crossorigin="anonymous"></script>
 	<script src="./assets/js/script.js"></script>
 </body>
 </html>
