@@ -21,12 +21,37 @@ let stratagems = [
 	}
 ];
 
+// display the sequence with symbols
+function symbolSequence(sequence) {
+	let symbol = ""; // Reset symbol variable to empty string
+
+	console.log("Sequence: ", sequence);
+	for (let i = 0; i < sequence.length; i++) {
+		let symbolIcon = "";
+
+		if (sequence[i] === "u") {
+			symbolIcon = '<i class="fa-solid fa-circle-arrow-up"></i>';
+		} else if (sequence[i] === "r") {
+			symbolIcon = '<i class="fa-solid fa-circle-arrow-right"></i>';
+		} else if (sequence[i] === "l") {
+			symbolIcon = '<i class="fa-solid fa-circle-arrow-left"></i>';
+		} else if (sequence[i] === "d") {
+			symbolIcon = '<i class="fa-solid fa-circle-arrow-down"></i>';
+		}
+		symbol += symbolIcon + " ";
+	}
+	console.log("Symbol: ", symbol);
+	document.getElementById("stratagem-combo").innerHTML = symbol;
+}
+
 // function to display stratagem based on its index in the array
 function displayStratagem(index) {
 	let stratagem = stratagems[index];
 
 	document.getElementById("stratagem").innerHTML = stratagem.stratagemName;
-	document.getElementById("stratagem-combo").innerHTML = stratagem.sequence;
+	// document.getElementById("stratagem-combo").innerHTML = stratagem.sequence;
+	sequence = stratagem.sequence;
+	symbolSequence(sequence);
 }
 
 function startGame() {
