@@ -22,7 +22,7 @@ body {
 	margin: 1rem;
 }
 
-.stratagem {
+.game-status {
 	display: flex;
 	justify-content: space-between;
 }
