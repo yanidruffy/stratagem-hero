@@ -1,4 +1,40 @@
 let stratagemName = "";
+let sequence = [];
+
+// array of stratagems containing multiple objects
+let stratagems = [
+	{
+		stratagemName: "500kg Bomb",
+		sequence: "urddd"
+	},
+	{
+		stratagemName: "Eagle 110mm Rocket Pods",
+		sequence: "urul"
+	},
+	{
+		stratagemName: "Eagle Smoke Strike",
+		sequence: "urud"
+	},
+	{
+		stratagemName: "Eagle Napalm Airstrike",
+		sequence: "urdu"
+	}
+];
+
+// function to display stratagem based on its index in the array
+function displayStratagem(index) {
+	let stratagem = stratagems[index];
+
+	document.getElementById("stratagem").innerHTML = stratagem.stratagemName;
+	document.getElementById("stratagem-combo").innerHTML = stratagem.sequence;
+}
+
+function startGame() {
+	document.getElementById("hidden").innerHTML = "";
+
+	let num = Math.floor(Math.random() * 4);
+	displayStratagem(num);
+};
 
 // wait for DOM to load
 document.addEventListener("DOMContentLoaded", function() {
@@ -16,20 +52,3 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	})
 });
-
-function startGame() {
-	document.getElementById("hidden").innerHTML = "";
-	alert("Game Started!");
-
-	let num = 0;
-	// let num = Math.floor(Math.random() * 2);
-
-	displayStratagem(num);
-};
-
-function displayStratagem(num) {
-	if (num === 0) {
-		stratagemName = "500kg Bomb";
-		document.getElementById("stratagem").innerHTML = stratagemName;
-	}
-}
