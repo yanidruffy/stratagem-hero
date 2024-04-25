@@ -1,5 +1,6 @@
 let stratagemName = "";
 let sequence = [];
+let gameStarted = false;
 
 // array of stratagems containing multiple objects
 let stratagems = [
@@ -64,16 +65,20 @@ function startGame() {
 // wait for DOM to load
 document.addEventListener("DOMContentLoaded", function() {
 
-	let buttons = document.getElementsByClassName("btn");
-	for (let button of buttons) {
-		button.addEventListener("click", function() {
-			startGame();
-		})
-	}
+	// let buttons = document.getElementsByClassName("btn");
+	// for (let button of buttons) {
+	// 	button.addEventListener("click", function() {
+	// 		startGame();
+	// 	})
+	// }
 
 	document.addEventListener("keydown", function(event) {
-		if (event.key.startsWith("Arrow")) {
+		if (!gameStarted && event.key.startsWith("Arrow")) {
 			startGame();
+			gameStarted = true;
+			console.log("Start Game");
+		} else {
+			console.log("pressed key, after game started", event.key);
 		}
-	})
+	});
 });
