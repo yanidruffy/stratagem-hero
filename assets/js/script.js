@@ -5,7 +5,9 @@ let userInput = "";
 let arrows = [];
 let round = document.getElementById("round");
 let time = document.getElementById("time");
-let score = 0;
+let score;
+let stratagemCount;
+let stratagemsCompleted;
 
 // array of stratagems containing multiple objects
 let stratagems = [
@@ -37,6 +39,11 @@ function highScore() {
 	console.log("High Score: ", highScore.innerHTML);
 };
 
+function stratagemGenerator() {
+	let num = Math.floor(Math.random() * 4);
+	displayStratagem(num);
+};
+
 function checkUserInput() {
 	console.log("Arrows before check: ", arrows);
 	if (arrows.length > 0 && userInput === arrows[0]) {
@@ -45,11 +52,17 @@ function checkUserInput() {
 		score += 1;
 		console.log(score);
 		if (arrows.length === 0) {
-			console.log("Next Round");
-			let num = Math.floor(Math.random() * 4);
-			displayStratagem(num);
-			round.innerHTML = parseInt(round.innerHTML) + 1;
-			time.innerHTML = "10";
+			console.log("Stratagem Complete");
+			stratagemsCompleted += 1;
+			console.log("Stratagems Completed: ", stratagemsCompleted);
+			if (stratagemsCompleted === stratagemCount) {
+				console.log("Round Complete");
+				round.innerHTML = parseInt(round.innerHTML) + 1;
+				console.log("Current Round: ", round.innerHTML);
+				stratagemsCompleted = 0;
+				stratagemCount += 1;
+			}
+			stratagemGenerator();
 		}
 	} else {
 		console.log("Incorrect. Game Over");
@@ -58,12 +71,6 @@ function checkUserInput() {
 		defaultStart();
 	};
 };
-
-function runGame(event) {
-	userInput = event.key;
-	console.log("User Input: ", userInput);
-	checkUserInput();
-}
 
 // convert sequence to arrow keys
 function arrowSequence(sequence) {
@@ -127,9 +134,16 @@ function startGame() {
 	round.innerHTML = "1";
 	time.innerHTML = "10";
 	score = 0;
-	let num = Math.floor(Math.random() * 4);
-	displayStratagem(num);
+	stratagemCount = 1;
+	stratagemsCompleted = 0;
+	stratagemGenerator();
 };
+
+function handleUserInput(event) {
+	userInput = event.key;
+	console.log("User Input: ", userInput);
+	checkUserInput();
+}
 
 function defaultStart() {
 	document.getElementById("stratagem").innerHTML = "Stratagem";
@@ -153,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			startGame();
 			console.log("Start Game");
 		} else if (gameStarted && event.key.startsWith("Arrow")){
-			runGame(event);
+			handleUserInput(event);
 		}
 	});
 });
