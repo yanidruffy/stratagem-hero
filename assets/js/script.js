@@ -1,5 +1,3 @@
-// let stratagemName = "";
-// let sequence = "";
 let gameStarted = false;
 let userInput = "";
 let arrows = [];
@@ -9,26 +7,7 @@ let score;
 let stratagemCount;
 let stratagemsCompleted;
 
-// array of stratagems containing multiple objects
-let stratagems = [
-	{
-		stratagemName: "500kg Bomb",
-		sequence: "urddd"
-	},
-	{
-		stratagemName: "Eagle 110mm Rocket Pods",
-		sequence: "urul"
-	},
-	{
-		stratagemName: "Eagle Smoke Strike",
-		sequence: "urud"
-	},
-	{
-		stratagemName: "Eagle Napalm Airstrike",
-		sequence: "urdu"
-	}
-];
-
+// function to keep track of high score
 function highScore() {
 	let highScore = document.getElementById("score");
 	if (score > parseInt(highScore.innerHTML)) {
@@ -39,11 +18,13 @@ function highScore() {
 	console.log("High Score: ", highScore.innerHTML);
 };
 
+// function to generate stratagem
 function stratagemGenerator() {
-	let num = Math.floor(Math.random() * 4);
+	let num = Math.floor(Math.random() * 47);
 	displayStratagem(num);
 };
 
+// function to check user input against the sequence
 function checkUserInput() {
 	console.log("Arrows before check: ", arrows);
 	if (arrows.length > 0 && userInput === arrows[0]) {
@@ -68,11 +49,11 @@ function checkUserInput() {
 		console.log("Incorrect. Game Over");
 		gameStarted = false;
 		highScore();
-		defaultStart();
+		resetGame();
 	};
 };
 
-// convert sequence to arrow keys
+// function to convert sequence to arrow keys
 function arrowSequence(sequence) {
 	let arrow = "";
 
@@ -94,7 +75,7 @@ function arrowSequence(sequence) {
 	return arrow.trim();
 }
 
-// display the sequence with symbols
+// function for UI to display the sequence with symbols
 function symbolSequence(sequence) {
 	let symbol = ""; // Reset symbol variable to empty string
 
@@ -117,7 +98,7 @@ function symbolSequence(sequence) {
 	document.getElementById("stratagem-combo").innerHTML = symbol;
 }
 
-// function to display stratagem based on its index in the array
+// function for UI to display stratagem based on its index in the array
 function displayStratagem(index) {
 	let stratagem = stratagems[index];
 
@@ -128,6 +109,7 @@ function displayStratagem(index) {
 	console.log("SequenceArrow: ", arrows);
 }
 
+// function to start the game
 function startGame() {
 	gameStarted = true;
 	document.getElementById("hidden").innerHTML = "";
@@ -139,13 +121,15 @@ function startGame() {
 	stratagemGenerator();
 };
 
+// function to handle user input during the game
 function handleUserInput(event) {
 	userInput = event.key;
 	console.log("User Input: ", userInput);
 	checkUserInput();
 }
 
-function defaultStart() {
+// function to reset game to default
+function resetGame() {
 	document.getElementById("stratagem").innerHTML = "Stratagem";
 	document.getElementById("hidden").innerHTML = "Press any stratagem to start";
 	round.innerHTML = "0";
