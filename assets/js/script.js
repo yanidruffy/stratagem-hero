@@ -3,6 +3,8 @@ let userInput = "";
 let arrows = [];
 let round = document.getElementById("round");
 let time = document.getElementById("time");
+let startingTime = 10;
+let timeInterval;
 let score;
 let stratagemCount;
 let stratagemsCompleted;
@@ -16,6 +18,29 @@ function highScore() {
 		highScore.innerHTML = highScore.innerHTML;
 	};
 	console.log("High Score: ", highScore.innerHTML);
+};
+
+// function to end the game
+function gameOver() {
+	clearInterval(timeInterval);
+	alert("Game Over. Your score is " + score);
+	gameStarted = false;
+	highScore();
+	resetGame();
+}
+
+// function to start the timer
+function startTimer(startingTime) {
+	let countdown = startingTime;
+
+	time.innerHTML = countdown;
+	timeInterval = setInterval(function() {
+		countdown -= 1;
+		time.innerHTML = countdown;
+		if (countdown === 0) {
+			gameOver();
+		}
+	}, 1000);
 };
 
 // function to generate stratagem
@@ -42,14 +67,13 @@ function checkUserInput() {
 				console.log("Current Round: ", round.innerHTML);
 				stratagemsCompleted = 0;
 				stratagemCount += 1;
+				clearInterval(timeInterval);
+				startTimer(startingTime);
 			}
 			stratagemGenerator();
 		}
 	} else {
-		console.log("Incorrect. Game Over");
-		gameStarted = false;
-		highScore();
-		resetGame();
+		gameOver();
 	};
 };
 
@@ -118,6 +142,7 @@ function startGame() {
 	score = 0;
 	stratagemCount = 1;
 	stratagemsCompleted = 0;
+	startTimer(startingTime);
 	stratagemGenerator();
 };
 

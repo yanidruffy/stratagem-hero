@@ -6,3 +6,8 @@
 
 <!-- https://www.w3schools.com/jsref/jsref_obj_array.asp -->
 <!-- https://www.w3schools.com/js/js_switch.asp -->
+<!-- https://www.w3schools.com/howto/howto_js_countdown.asp -->
+<!-- https://www.w3schools.com/jsref/met_win_setinterval.asp -->
+<!-- https://www.w3schools.com/jsref/met_win_clearinterval.asp -->
+
+<!-- https://www.youtube.com/watch?v=n_ec3eowFLQ -->
