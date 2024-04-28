@@ -1,10 +1,11 @@
-let stratagemName = "";
-let sequence = "";
+// let stratagemName = "";
+// let sequence = "";
 let gameStarted = false;
 let userInput = "";
 let arrows = [];
 let round = document.getElementById("round");
 let time = document.getElementById("time");
+let score = 0;
 
 // array of stratagems containing multiple objects
 let stratagems = [
@@ -26,11 +27,23 @@ let stratagems = [
 	}
 ];
 
+function highScore() {
+	let highScore = document.getElementById("score");
+	if (score > parseInt(highScore.innerHTML)) {
+		highScore.innerHTML = score;
+	} else {
+		highScore.innerHTML = highScore.innerHTML;
+	};
+	console.log("High Score: ", highScore.innerHTML);
+};
+
 function checkUserInput() {
 	console.log("Arrows before check: ", arrows);
 	if (arrows.length > 0 && userInput === arrows[0]) {
 		console.log("Correct");
 		arrows.shift();
+		score += 1;
+		console.log(score);
 		if (arrows.length === 0) {
 			console.log("Next Round");
 			let num = Math.floor(Math.random() * 4);
@@ -41,11 +54,12 @@ function checkUserInput() {
 	} else {
 		console.log("Incorrect. Game Over");
 		gameStarted = false;
+		highScore();
 		defaultStart();
 	};
 };
 
-function compareUserInput(event) {
+function runGame(event) {
 	userInput = event.key;
 	console.log("User Input: ", userInput);
 	checkUserInput();
@@ -112,6 +126,7 @@ function startGame() {
 	document.getElementById("hidden").innerHTML = "";
 	round.innerHTML = "1";
 	time.innerHTML = "10";
+	score = 0;
 	let num = Math.floor(Math.random() * 4);
 	displayStratagem(num);
 };
@@ -138,9 +153,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			startGame();
 			console.log("Start Game");
 		} else if (gameStarted && event.key.startsWith("Arrow")){
-			compareUserInput(event);
-		} else {
-			defaultStart();
-		};
+			runGame(event);
+		}
 	});
 });
