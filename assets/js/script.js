@@ -93,7 +93,7 @@ function arrowSequence(sequence) {
 		} else if (sequence[i] === "d") {
 			arrowKey = "ArrowDown";
 		}
-		arrow += arrowKey + " ";
+		arrow += arrowKey.toLowerCase() + " ";
 	}
 	console.log("Arrow Keys: ", arrow);
 	return arrow.trim();
@@ -147,8 +147,9 @@ function startGame() {
 };
 
 // function to handle user input during the game
-function handleUserInput(event) {
-	userInput = event.key;
+function handleUserInput(key) {
+	console.log("Type of input: ", typeof key);
+	userInput = key;
 	console.log("User Input: ", userInput);
 	checkUserInput();
 }
@@ -164,19 +165,29 @@ function resetGame() {
 // wait for DOM to load
 document.addEventListener("DOMContentLoaded", function() {
 
-	// let buttons = document.getElementsByClassName("btn");
-	// for (let button of buttons) {
-	// 	button.addEventListener("click", function() {
-	// 		startGame();
-	// 	})
-	// }
+	let buttons = document.getElementsByClassName("btn");
+	for (let button of buttons) {
+		button.addEventListener("click", function() {
+			if (!gameStarted) {
+				startGame();
+				console.log("Start Game");
+			} else if (gameStarted) {
+				let arrowKey = button.dataset.type.replace("arrow-", "arrow");
+				console.log("Type of Button: ", typeof arrowKey);
+				console.log("Button: ", arrowKey);
+				handleUserInput(arrowKey);
+			}
+		});
+	};
 
 	document.addEventListener("keydown", function(event) {
 		if (!gameStarted && event.key.startsWith("Arrow")) {
 			startGame();
 			console.log("Start Game");
-		} else if (gameStarted && event.key.startsWith("Arrow")){
-			handleUserInput(event);
+		} else if (gameStarted && event.key.toLowerCase().startsWith("arrow")){
+			handleUserInput(event.key.toLowerCase());
+			console.log("Type of Keyboard: ", typeof event.key.toLowerCase());
+			console.log("User Input Keyboard: ", event.key.toLowerCase());
 		}
 	});
 });
