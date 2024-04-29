@@ -11,15 +11,26 @@ body {
 	color: #ffee32;
 	font-family: "Jersey 10", sans-serif;
 	text-align: center;
+	max-width: 1080px;
+	margin: 0 auto;
 }
 
 .title {
 	text-transform: uppercase;
+	margin: 2rem;
 }
 
 .game-area {
 	padding: 2rem;
 	margin: 1rem;
+}
+
+.game-area h2 {
+	margin: 1rem;
+}
+
+.game-area .start{
+	margin-top: 1rem;
 }
 
 .game-status {
@@ -30,11 +41,28 @@ body {
 .mobile-input {
 	margin-top: 1rem;
 }
+
 .btn {
 	margin: 10px;
 	padding: 10px;
 }
 
+.btn:hover {
+	background-color: #ffee32;
+	color: black;
+}
+
+.btn:active {
+	background-color: #ffee32;
+	color: black;
+}
+
 .score-area {
 	margin-top: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+	body {
+		font-size: 2rem;
+	}
 }
