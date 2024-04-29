@@ -23,7 +23,7 @@ function highScore() {
 // function to end the game
 function gameOver() {
 	clearInterval(timeInterval);
-	alert("Game Over. Your score is " + score);
+	alert("Game Over.\n Your score is " + score + ".\n Last Input: " + userInput + ".\n Expected Input: " + arrows[0] + ".\n Time Left: " + time.innerHTML + " seconds.");
 	gameStarted = false;
 	highScore();
 	resetGame();
@@ -38,6 +38,7 @@ function startTimer(startingTime) {
 		countdown -= 1;
 		time.innerHTML = countdown;
 		if (countdown === 0) {
+			console.log("Time's Up");
 			gameOver();
 		}
 	}, 1000);
@@ -136,7 +137,7 @@ function displayStratagem(index) {
 // function to start the game
 function startGame() {
 	gameStarted = true;
-	document.getElementById("hidden").innerHTML = "";
+	document.getElementById("instruction").innerHTML = "Put in the arrow keys in the correct order to complete the stratagem.";
 	round.innerHTML = "1";
 	time.innerHTML = "10";
 	score = 0;
@@ -157,7 +158,8 @@ function handleUserInput(key) {
 // function to reset game to default
 function resetGame() {
 	document.getElementById("stratagem").innerHTML = "Stratagem";
-	document.getElementById("hidden").innerHTML = "Press any stratagem to start";
+	document.getElementById("instruction").innerHTML = "Press any stratagem to start";
+	document.getElementById("stratagem-combo").innerHTML = "";
 	round.innerHTML = "0";
 	time.innerHTML = "0";
 }
