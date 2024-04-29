@@ -1,3 +1,4 @@
+let sequence = "";
 let gameStarted = false;
 let userInput = "";
 let arrows = [];
@@ -157,7 +158,7 @@ function handleUserInput(key) {
 
 // function to reset game to default
 function resetGame() {
-	document.getElementById("stratagem").innerHTML = "Stratagem";
+	document.getElementById("stratagem").innerHTML = "Start Game";
 	document.getElementById("instruction").innerHTML = "Press any arrow key or button to start";
 	document.getElementById("stratagem-combo").innerHTML = "";
 	round.innerHTML = "0";

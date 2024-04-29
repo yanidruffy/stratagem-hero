@@ -10,5 +10,6 @@
 <!-- https://www.w3schools.com/jsref/met_win_setinterval.asp -->
 <!-- https://www.w3schools.com/jsref/met_win_clearinterval.asp -->
 <!-- https://www.w3schools.com/jsref/jsref_replace.asp -->
+<!-- https://www.w3schools.com/css/css3_transitions.asp -->
 
 <!-- https://www.youtube.com/watch?v=n_ec3eowFLQ -->
