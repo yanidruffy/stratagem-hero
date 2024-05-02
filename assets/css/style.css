@@ -45,7 +45,12 @@ body {
 .btn {
 	margin: 10px;
 	padding: 10px;
-	transition: background-color 0.2s, color 0.2s;
+
+}
+
+.btn img {
+	height: 15px;
+	width: 15px;
 }
 
 .btn:hover {
@@ -53,10 +58,10 @@ body {
 	color: black;
 }
 
-.btn:active {
+/* .btn:active {
 	background-color: #ffee32;
 	color: black;
-}
+} */
 
 .score-area {
 	margin-top: 1rem;

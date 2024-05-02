@@ -13,3 +13,6 @@
 <!-- https://www.w3schools.com/css/css3_transitions.asp -->
 
 <!-- https://www.youtube.com/watch?v=n_ec3eowFLQ -->
+
+<!-- https://ezgif.com/ -->
+<!-- https://tinypng.com/ -->
