@@ -56,6 +56,7 @@ function checkUserInput() {
 	console.log("Arrows before check: ", arrows);
 	if (arrows.length > 0 && userInput === arrows[0]) {
 		console.log("Correct");
+		document.getElementById(`icon-${sequence.length - arrows.length}`).classList.add("correct");
 		arrows.shift();
 		score += 1;
 		console.log(score);
@@ -108,20 +109,21 @@ function symbolSequence(sequence) {
 	console.log("Sequence: ", sequence);
 	for (let i = 0; i < sequence.length; i++) {
 		let symbolIcon = "";
-
+		let iconClass = "";
 		if (sequence[i] === "u") {
-			symbolIcon = '<i class="fa-solid fa-circle-arrow-up"></i>';
+			iconClass = "fa-circle-arrow-up"
 		} else if (sequence[i] === "r") {
-			symbolIcon = '<i class="fa-solid fa-circle-arrow-right"></i>';
+			iconClass = "fa-circle-arrow-right";
 		} else if (sequence[i] === "l") {
-			symbolIcon = '<i class="fa-solid fa-circle-arrow-left"></i>';
+			iconClass = "fa-circle-arrow-left";
 		} else if (sequence[i] === "d") {
-			symbolIcon = '<i class="fa-solid fa-circle-arrow-down"></i>';
+			iconClass = "fa-circle-arrow-down";
 		}
+		symbolIcon = `<i class="fa-solid ${iconClass}" id="icon-${i}"></i>`;
 		symbol += symbolIcon + " ";
 	}
 	console.log("Symbol: ", symbol);
-	document.getElementById("stratagem-combo").innerHTML = symbol;
+	document.getElementById("stratagem-combo").innerHTML = symbol.trim();
 }
 
 // function for UI to display stratagem based on its index in the array

@@ -11,8 +11,11 @@
 <!-- https://www.w3schools.com/jsref/met_win_clearinterval.asp -->
 <!-- https://www.w3schools.com/jsref/jsref_replace.asp -->
 <!-- https://www.w3schools.com/css/css3_transitions.asp -->
+<!-- https://www.w3schools.com/jsref/met_win_settimeout.asp -->
 
 <!-- https://www.youtube.com/watch?v=n_ec3eowFLQ -->
 
 <!-- https://ezgif.com/ -->
 <!-- https://tinypng.com/ -->
+
+<!-- Mentor Spence big help with how to change color of the symbol to green for better user feedback and docstrings -->
