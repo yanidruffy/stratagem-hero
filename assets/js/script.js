@@ -19,8 +19,8 @@ function highScore() {
 		highScore.innerHTML = score;
 	} else {
 		highScore.innerHTML = highScore.innerHTML;
-	};
-};
+	}
+}
 
 /**
  * function to end the game
@@ -31,7 +31,7 @@ function gameOver() {
 	gameStarted = false;
 	highScore();
 	resetGame();
-};
+}
 
 /**
  * function to start the timer
@@ -48,7 +48,7 @@ function startTimer(startingTime) {
 			gameOver();
 		}
 	}, 1000);
-};
+}
 
 /**
  * function to generate stratagem
@@ -56,7 +56,7 @@ function startTimer(startingTime) {
 function stratagemGenerator() {
 	let num = Math.floor(Math.random() * stratagems.length);
 	displayStratagem(num);
-};
+}
 
 /**
  * function to check user input against the sequence
@@ -79,8 +79,8 @@ function checkUserInput() {
 		}
 	} else {
 		gameOver();
-	};
-};
+	}
+}
 
 /**
  * function to convert sequence to arrow keys
@@ -105,7 +105,7 @@ function arrowSequence(sequence) {
 		arrow += arrowKey.toLowerCase() + " ";
 	}
 	return arrow.trim();
-};
+}
 
 /**
  * function for UI to display the sequence with symbols
@@ -118,7 +118,7 @@ function symbolSequence(sequence) {
 		let symbolIcon = "";
 		let iconClass = "";
 		if (sequence[i] === "u") {
-			iconClass = "fa-circle-arrow-up"
+			iconClass = "fa-circle-arrow-up";
 		} else if (sequence[i] === "r") {
 			iconClass = "fa-circle-arrow-right";
 		} else if (sequence[i] === "l") {
@@ -130,7 +130,7 @@ function symbolSequence(sequence) {
 		symbol += symbolIcon + " ";
 	}
 	document.getElementById("stratagem-combo").innerHTML = symbol.trim();
-};
+}
 
 /**
  * function for UI to display stratagem based on its index in the array
@@ -143,7 +143,7 @@ function displayStratagem(index) {
 	sequence = stratagem.sequence;
 	symbolSequence(sequence);
 	arrows = arrowSequence(sequence).split(" ");
-};
+}
 
 /**
  * function to start the game
@@ -158,16 +158,15 @@ function startGame() {
 	stratagemsCompleted = 0;
 	startTimer(startingTime);
 	stratagemGenerator();
-};
+}
 
-/**
- * function to handle user input during the game
+/** function to handle user input during the game
  * @param {string} key
  */
 function handleUserInput(key) {
 	userInput = key;
 	checkUserInput();
-};
+}
 
 /**
  * function to reset game to default
@@ -178,13 +177,13 @@ function resetGame() {
 	document.getElementById("stratagem-combo").innerHTML = "";
 	round.innerHTML = "0";
 	time.innerHTML = "0";
-};
+}
 
 // wait for DOM to load
 document.addEventListener("DOMContentLoaded", function () {
 
 	const buttons = document.getElementsByClassName("btn");
-	for (let button of buttons) {
+	for (const button of buttons) {
 		button.addEventListener("click", function () {
 			if (!gameStarted) {
 				startGame();
@@ -193,7 +192,7 @@ document.addEventListener("DOMContentLoaded", function () {
 				handleUserInput(arrowKey);
 			}
 		});
-	};
+	}
 
 	document.addEventListener("keydown", function (event) {
 		if (!gameStarted && event.key.startsWith("Arrow")) {
